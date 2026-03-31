@@ -39,35 +39,47 @@ A role-based backend system built with Node.js, Express, PostgreSQL (Neon), Pris
 ---
 
 ## 📁 Project Structure
+
+```text
 unfazzed-auth-system/
 ├── prisma/
 │   ├── schema.prisma
 │   └── seed.js
+│
 ├── src/
 │   ├── config/
 │   │   └── prisma.js
+│   │
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   ├── adminController.js
 │   │   └── providerController.js
+│   │
 │   ├── middleware/
 │   │   ├── authMiddleware.js
 │   │   ├── roleMiddleware.js
 │   │   ├── errorMiddleware.js
 │   │   └── validateMiddleware.js
+│   │
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── adminRoutes.js
 │   │   └── providerRoutes.js
+│   │
 │   ├── utils/
 │   │   ├── generateToken.js
 │   │   └── validators.js
+│   │
 │   ├── app.js
 │   └── server.js
-├── prisma.config.ts
-├── .env
+│
+├── API_TESTING.md
+├── .env.example
 ├── .gitignore
-└── package.json
+├── package.json
+├── package-lock.json
+├── prisma.config.ts
+└── README.md
 
 
 ---
