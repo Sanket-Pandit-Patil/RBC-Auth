@@ -122,6 +122,12 @@ npm run dev
 ## 🧪 Testing
 Use Postman to test APIs.
 
+## 📄 API Testing Guide
+
+See full testing steps here:
+
+👉 `API_TESTING.md`
+
 ---
 
 ## 👨‍💻 Author
