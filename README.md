@@ -1,43 +1,4 @@
-# Unfazzed Auth System 🚀
 
-A role-based backend system built with Node.js, Express, PostgreSQL (Neon), Prisma, and JWT.
-
-## 🔧 Tech Stack
-- Node.js
-- Express.js
-- PostgreSQL (Neon)
-- Prisma ORM
-- JWT Authentication
-- bcrypt (password hashing)
-
----
-
-## ✨ Features
-
-### 🔐 Authentication
-- Provider Signup
-- Multi-role Login (Admin, Provider, Handyman)
-- JWT-based authentication
-
-### 👤 Roles
-- ADMIN → create services & zones
-- PROVIDER → assign services/zones, create handymen
-- HANDYMAN → linked under provider
-
-### 🛡 Security
-- Password hashing (bcrypt)
-- JWT authentication
-- Role-based access control
-- Input validation middleware
-
-### ⚙️ Advanced
-- Prisma transactions for atomic updates
-- Global error handling
-- Clean project structure
-
----
-
-## 📁 Project Structure
 # Unfazzed Auth System 🚀
 
 A role-based backend system built with Node.js, Express, PostgreSQL (Neon), Prisma, and JWT.
