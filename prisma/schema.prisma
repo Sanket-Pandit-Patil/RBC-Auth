@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  PROVIDER
+  HANDYMAN
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String   @unique
+  password   String
+  role       Role
+  providerId Int?
+
+  provider   User?    @relation("ProviderHandymen", fields: [providerId], references: [id])
+  handymen   User[]   @relation("ProviderHandymen")
+
+  providerServices ProviderService[]
+  providerZones    ProviderZone[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Service {
+  id        Int               @id @default(autoincrement())
+  name      String            @unique
+  providers ProviderService[]
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+model Zone {
+  id        Int            @id @default(autoincrement())
+  name      String         @unique
+  providers ProviderZone[]
+  createdAt DateTime       @default(now())
+  updatedAt DateTime       @updatedAt
+}
+
+model ProviderService {
+  id         Int      @id @default(autoincrement())
+  providerId Int
+  serviceId  Int
+
+  provider   User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  service    Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([providerId, serviceId])
+}
+
+model ProviderZone {
+  id         Int      @id @default(autoincrement())
+  providerId Int
+  zoneId     Int
+
+  provider   User     @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  zone       Zone     @relation(fields: [zoneId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  @@unique([providerId, zoneId])
+}

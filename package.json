@@ -1,0 +1,15 @@
+{
+  "name": "unfazzed-auth-system",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:validate": "prisma validate",
+    "db:studio": "prisma studio",
+    "seed": "node prisma/seed.js"
+  }
+}
