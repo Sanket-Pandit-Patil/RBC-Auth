@@ -1,46 +1,51 @@
+# 🚀 Unfazzed Auth System
 
-# Unfazzed Auth System 🚀
-
-A role-based backend system built with Node.js, Express, PostgreSQL (Neon), Prisma, and JWT.
-
-## 🔧 Tech Stack
-- Node.js
-- Express.js
-- PostgreSQL (Neon)
-- Prisma ORM
-- JWT Authentication
-- bcrypt (password hashing)
+A scalable **role-based backend system** built using **Node.js, Express, PostgreSQL (Neon), Prisma ORM, and JWT**, designed to manage Admin, Provider, and Handyman workflows with secure authentication and access control.
 
 ---
 
-## ✨ Features
+## 🛠 Tech Stack
 
-### 🔐 Authentication
-- Provider Signup
-- Multi-role Login (Admin, Provider, Handyman)
-- JWT-based authentication
+- **Backend:** Node.js, Express.js  
+- **Database:** PostgreSQL (Neon)  
+- **ORM:** Prisma  
+- **Authentication:** JWT (JSON Web Tokens)  
+- **Security:** bcrypt (password hashing)  
 
-### 👤 Roles
-- ADMIN → create services & zones
-- PROVIDER → assign services/zones, create handymen
-- HANDYMAN → linked under provider
+---
 
-### 🛡 Security
-- Password hashing (bcrypt)
-- JWT authentication
-- Role-based access control
-- Input validation middleware
+## ✨ Key Features
 
-### ⚙️ Advanced
-- Prisma transactions for atomic updates
-- Global error handling
-- Clean project structure
+### 🔐 Authentication & Authorization
+- Provider Signup & Multi-role Login  
+- Secure JWT-based authentication  
+- Role-based access control (RBAC)  
+
+### 👥 Role Management
+- **Admin**
+  - Create and manage Services & Zones  
+- **Provider**
+  - Select services and zones  
+  - Create and manage Handymen  
+- **Handyman**
+  - Linked under a Provider  
+
+### 🛡 Security & Validation
+- Password hashing using bcrypt  
+- Protected routes with middleware  
+- Input validation for all APIs  
+- Centralized error handling  
+
+### ⚙️ System Design Highlights
+- Prisma ORM for efficient DB operations  
+- Transaction support for atomic updates  
+- Clean and modular architecture  
 
 ---
 
 ## 📁 Project Structure
 
-```text
+```
 unfazzed-auth-system/
 ├── prisma/
 │   ├── schema.prisma
@@ -49,98 +54,121 @@ unfazzed-auth-system/
 ├── src/
 │   ├── config/
 │   │   └── prisma.js
-│   │
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   ├── adminController.js
 │   │   └── providerController.js
-│   │
 │   ├── middleware/
 │   │   ├── authMiddleware.js
 │   │   ├── roleMiddleware.js
 │   │   ├── errorMiddleware.js
 │   │   └── validateMiddleware.js
-│   │
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── adminRoutes.js
 │   │   └── providerRoutes.js
-│   │
 │   ├── utils/
 │   │   ├── generateToken.js
 │   │   └── validators.js
-│   │
 │   ├── app.js
 │   └── server.js
 │
 ├── API_TESTING.md
-├── .env.example
-├── .gitignore
-├── package.json
-├── package-lock.json
 ├── prisma.config.ts
+├── .env.example
+├── package.json
 └── README.md
-
+```
 
 ---
 
-## 🚀 Setup Instructions
+## 🚀 Getting Started
 
-### 1. Clone repo
+### 1. Clone Repository
+```bash
 git clone <your_repo_url>
 cd unfazzed-auth-system
+```
 
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-### 2. Install dependencies
-npm i
+### 3. Configure Environment
+Create a `.env` file:
 
-### 3. Setup environment
-Create `.env` file:
+```env
 PORT=5000
-JWT_SECRET=your_secret
-DATABASE_URL=your_neon_url
-DIRECT_URL=your_direct_url
+JWT_SECRET=your_secret_key
+DATABASE_URL=your_neon_pooled_url
+DIRECT_URL=your_neon_direct_url
+```
 
-### 4. Setup database
+---
+
+### 4. Setup Database
+```bash
 npx prisma generate
 npx prisma db push
+```
 
-### 5. Seed admin
+---
+
+### 5. Seed Admin User
+```bash
 npm run seed
+```
+
+---
 
 ### 6. Run Server
+```bash
 npm run dev
-
+```
 
 ---
 
 ## 📮 API Endpoints
 
-### Auth
+### 🔐 Authentication
 - POST `/api/auth/signup/provider`
 - POST `/api/auth/login`
 
-### Admin
+### 🛠 Admin
 - POST `/api/admin/services`
 - POST `/api/admin/zones`
 
-### Provider
+### 👤 Provider
 - PUT `/api/provider/select-services-zones`
 - POST `/api/provider/create-handyman`
 - GET `/api/provider/profile`
 
 ---
 
-## 🧪 Testing
-Use Postman to test APIs.
+## 🧪 API Testing
 
-## 📄 API Testing Guide
+Use Postman or any API client.
 
-See full testing steps here:
-
+📄 Detailed guide available in:  
 👉 `API_TESTING.md`
 
 ---
 
+## 🎯 Highlights
+
+- Clean and scalable backend architecture  
+- Real-world RBAC implementation  
+- Production-ready authentication system  
+- Optimized for quick development and deployment  
+
+---
+
 ## 👨‍💻 Author
-Sanket
+
+**Sanket Patil**
+
+---
+
+## ⭐ If you found this useful
+Give it a ⭐ on GitHub!
